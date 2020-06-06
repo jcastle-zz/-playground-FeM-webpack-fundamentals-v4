@@ -39,3 +39,20 @@
 - Module system allows for maintaining and scaling w/ bundlers.
 - No other syntax as unique as ESM (EcmaScript Modules).
 - In web, need to care about how much code compiling and shipping.
+
+## Exercise files
+- Included in this repo but need to clone to follow along because of branch switching.
+- GH repo w/ branches - https://github.com/TheLarkInn/webpack-workshop-2018.git
+- Switch to Node v8.0.0 (https://itnext.io/nvm-the-easiest-way-to-switch-node-js-environments-on-your-machine-in-a-flash-17babb7d5f1b)
+    - nvm ls - check installed versions of Node
+    - install nvm 8.0.0 - installed Node v8
+    - nvm use 10.17.0 - to switch (don't need on install)
+
+- git checkout feature/01-fem-first-script
+    - package.json -> "scripts": { 
+        "key": "value"
+        "webpack": "webpack"
+        } 
+    - terminal -> npm run <name-of-that-script> (e.g. npm run webpack)
+    - webpack looks for an entry property and defaults to src/index.js
+  

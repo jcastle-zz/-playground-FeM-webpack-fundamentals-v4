@@ -1,0 +1,23 @@
+{
+  "name": "webpack-workshop-2018",
+  "version": "1.0.0",
+  "description": "Learning resources for the webpack academy workshop series for 2018",
+  "main": "index.js",
+  "scripts": {
+    "serve": "http-server ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheLarkInn/webpack-workshop-2018.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheLarkInn/webpack-workshop-2018/issues"
+  },
+  "homepage": "https://github.com/TheLarkInn/webpack-workshop-2018#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
