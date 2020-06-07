@@ -52,10 +52,56 @@
 - git checkout feature/01-fem-first-script
     - package.json -> "scripts": { 
         "key": "value"
-        "webpack": "webpack"
+        "webpack": "webpack",
+        "dev": "npm run webpack -- --mode development",
+        "prod": "npm run webpack -- --mode production"
         } 
     - terminal -> npm run <name-of-that-script> (e.g. npm run webpack)
     - webpack looks for an entry property and defaults to src/index.js
         - no config file needed, run webpack and default to src and index.js
     - NPM has capability to compose scripts
         - Have property in webpack to designate dev or prod or other
+
+### Setting up Debugging
+- git checkout feature/03-fem-debug-script --force
+    - "debugthis": "node --inspect --inspect-brk ./src/index.js"
+    - ./src/index.js is to the source file, can be anything you wish to debug
+    - run debug script and results in URL, go to Chrome and type chrome://inspect
+    - click link "open dedicated dev tools for Node"
+    - open console and type process.env or global
+- Modify scripts to debug webpack - npm run debug which runs "debug": "node --inspect       --inspect-brk ./node_modules/webpack/bin/webpack.js" in package.json and allows for debugging in webpack
+    - helpful for writing custom loader or plugin and good for debugging
+    - command p - provides file picker while in webpack
+    - async is hard, debugger provides valuable context
+- Scripts - focus on composition and separation of concerns, most issues because everything shoved into one script or build file
+
+### Coding Your First Module
+- create ./src/nav.js and export default "nav";
+- in ./src/index.js import nav from "./nav"; and console.log(nav);
+- npm run prod to run files in webpack and webpack adds a dist folder w/ main.js
+- run node ./dist/main.js and returns nav - used two modules in index.js and nav.js with functionality executed in one module located in main.js
+
+### Adding Watch Mode
+- Webpack has a watching mode which means we don't have to run npm run prod many times
+- Added with a --watch flag on the end of the dev script
+- As changes are made, webpack will continually update the main.js file
+
+### ES Module Syntax
+- With watch, we can continue to add modules
+- Using export and import on js pages and using watch for results
+
+### Common JS Export
+- React uses CommonJS and will need to know how to export accordingly
+- Format is similar to ES Module Syntax
+- In Webpack, cannot use CommonJS and ES syntax together but do have interop to work with both for dependencies and live bindings
+
+### CommonsJS Named Exports
+- Should not use CommonJS if possible
+- Babel and Typescript default to CommonJS and pass to webpack
+- Const at the top of file, Exports at bottom of file
+- Don't have to import every export, can choose the ones you want, and only pull in what you are using
+
+### Tree Shaking
+
+
+
