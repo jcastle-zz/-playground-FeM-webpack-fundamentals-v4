@@ -40,7 +40,7 @@
 - No other syntax as unique as ESM (EcmaScript Modules).
 - In web, need to care about how much code compiling and shipping.
 
-## Exercise files
+## Webpack from Scratch
 - Included in this repo but need to clone to follow along because of branch switching.
 - GH repo w/ branches - https://github.com/TheLarkInn/webpack-workshop-2018.git
 - Switch to Node v8.0.0 (https://itnext.io/nvm-the-easiest-way-to-switch-node-js-environments-on-your-machine-in-a-flash-17babb7d5f1b)
@@ -48,6 +48,7 @@
     - install nvm 8.0.0 - installed Node v8
     - nvm use 10.17.0 - to switch (don't need on install)
 
+### Adding NPM Scripts for ENV Builds
 - git checkout feature/01-fem-first-script
     - package.json -> "scripts": { 
         "key": "value"
@@ -55,4 +56,6 @@
         } 
     - terminal -> npm run <name-of-that-script> (e.g. npm run webpack)
     - webpack looks for an entry property and defaults to src/index.js
-  
+        - no config file needed, run webpack and default to src and index.js
+    - NPM has capability to compose scripts
+        - Have property in webpack to designate dev or prod or other
