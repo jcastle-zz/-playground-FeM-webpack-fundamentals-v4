@@ -102,6 +102,11 @@
 - Don't have to import every export, can choose the ones you want, and only pull in what you are using
 
 ### Tree Shaking
+- git checkout feature/031-all-module-types -f
+- Webpack statically calls what is being used, doesn't show exports that are not being imported
+- Webpack core purpose is for managing modules
+- Also allows for incremental recompile on styles tied to modules, or other dependencies
+- By default, when webpack runs it does a require relative to the local path to webpack.config.js or it attempts to find it
 
-
-
+### Webpack Bundle Walkthrough
+- 
