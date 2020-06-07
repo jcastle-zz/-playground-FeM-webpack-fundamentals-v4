@@ -109,4 +109,37 @@
 - By default, when webpack runs it does a require relative to the local path to webpack.config.js or it attempts to find it
 
 ### Webpack Bundle Walkthrough
-- 
+- Webpack bootstrap - output in main.js - the runtime code at the beginning, then file outputs
+- bundle-example-main.js - shows what happens when webpack bundles the code
+    - caches modules
+    - if exists, exports object from module cache - if module doesn't exist, nothing happens
+    - call the module, pass require function to require module outputs
+    - webpack require replacing import statements
+    - only runtime code, everything else from the build
+
+## Webpack Core Concepts
+- Going to add features, loaders, plugins
+- Four core concepts - entry, output
+
+### Webpack Entry
+- Entry point is not like entry prop on config rather a concept
+- Not all dependencies are JS, could be Sass, CSS, etc.
+- First JS file to load is your entry to your app, webpack uses this as the starting point
+- Defined in the config file
+    - webpack.config.js
+    - module.exports = { 
+        entry: "./file_path/filename.ext",
+    }
+    - webpack traces through imports and look for other dependencies in those files and creates a graph
+- Entry - tells webpack what files to load for the browser; compliments the output property
+
+### Output & Loaders
+- Now that webpack has entry graph in memory, it needs to create the bundle
+- module.exports = { 
+        entry: "./file_path/filename.ext",
+        output: "./dist",
+        filename: "./bundle.js",
+    }
+- There are more configuration options than this one example
+- By default, filename is set to main.js and path is dist
+- Output tells webpack where and how to distribute bundles (compilations). Works with entry.
