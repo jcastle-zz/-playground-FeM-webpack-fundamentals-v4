@@ -143,3 +143,18 @@
 - There are more configuration options than this one example
 - By default, filename is set to main.js and path is dist
 - Output tells webpack where and how to distribute bundles (compilations). Works with entry.
+
+#### Loaders & Rules - p94
+- Rules tell webpack how to modify files before they are added to dependency graph
+    - Ruleset has two basic criteria
+    - module: {rules: [{ test: /\.ts$/, use: `ts-loader`}]}
+- Loaders are also JS modules (functions) that takes the source file and returns it in a modified state
+- test: a regular expression that instructs the compiler which files to run the loader against
+- use: an array/string/function that returns loader objects
+- enforce: can be pre or post and tells webpack to run this rule before or after other rules
+- include: an array or regular expression that instructs the compliler which folder/files to include. Only search paths provided with the include.
+- exclude: an array or regular expression that instructs the compiler which folders/files to ignore.
+- each property is use case based, won't need to memorize, should be in documentation
+
+### Chaining Loaders - p96
+- 
