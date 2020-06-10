@@ -119,7 +119,7 @@
 
 ## Webpack Core Concepts
 - Going to add features, loaders, plugins
-- Four core concepts - entry, output
+- Four core concepts - entry, output, loaders, and plugins
 
 ### Webpack Entry
 - Entry point is not like entry prop on config rather a concept
@@ -157,4 +157,41 @@
 - each property is use case based, won't need to memorize, should be in documentation
 
 ### Chaining Loaders - p96
-- 
+- Anatomy of a loader is a function that takes a source and returns a new source
+- Loaders execute right to left
+- All sorts of loaders - see p97
+- Core concepts - entry, output, loaders
+- Tells webpack how to interpret and translate files. Transformed on a per-file basis before adding to the dependency graph.
+
+### Webpack Plugins - p100
+- Instance of a JS object that has an applied property on the prototype chain
+- Allows you to hook into entire web lifecycle of events
+- Objects with an apply property
+- Webpack has a variety of plugins out of the box
+- How to use plugins
+    - require() plugin from node_modules into config.
+    - add "new" instance of plugin to plugins key in config object
+    - provide traditional info for arguments
+- 80% of webpack if made of its own plugin system
+- Adds additional functionality to compilations (optimized bundled modules). More powerful w/ more access to CompilerAPI. Does everything else you would ever want to do in webpack.
+
+### Webpack Config
+- Exercise with mode and output w/ bundle.js
+
+### Adding Webpack Plugins
+- Like to have html-webpack-plugin
+- Added webpack for more terminal info, it's out of the box
+- Added build-utils folder - where the build happens, includes supplemental or partial configurations end up
+
+### Setting Up Local Dev Server
+- Install webpack-dev-server
+- Provides development environment on localhost with dynamic updates
+- Web server based on express, all it's doing instead of creating bundle to dist folder, generates a bundle in memory and serves to express and does websocket connection and reloads
+
+### Splitting Environment Config Files
+- const modeConfig = env => require(`./build-utils/webpack{env}`)(env);
+- Based on what we require, it's going to look for production or development
+- Leveraging env.mode, passing it in
+- module.exports = ({ mode, presets } = { mode: "production", presets: [] })
+- Defaulting presets as fall back in case something goes wrong
+- Sets up webpack.production.js and webpack-development.js with presets
